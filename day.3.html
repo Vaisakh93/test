@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var feedback = "   I loved the FOOD and the service!   ";
+
+var cleanedFeedback = feedback.trim();
+console.log( cleanedFeedback + "'"); 
+
+var lowerCaseFeedback = cleanedFeedback.toLowerCase();
+console.log(  lowerCaseFeedback + "'"); 
+
+var replacedFeedback = lowerCaseFeedback.replace("food", "ambience");
+console.log( replacedFeedback + "'"); 
+
+var servicePosition = replacedFeedback.indexOf("service");
+console.log(servicePosition); 
+
+var feedbackArray = replacedFeedback.split(" ");
+console.log( feedbackArray); 
+
+    </script>
+</body>
+</html>
