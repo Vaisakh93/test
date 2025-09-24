@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <script>
+
+let randomNum = Math.floor(Math.random() * 100) + 1;
+console.log("Random Number:", randomNum);
+
+var userScoreStr = "75";
+
+var userScore = Number(userScoreStr);
+console.log("User Score:", userScore);
+
+var difference = Math.abs(randomNum - userScore);
+console.log("Difference:", difference);
+
+var sqrtRounded = Math.round(Math.sqrt(userScore));
+console.log("Rounded Square Root of Score:", sqrtRounded);
+
+console.log("Pi Constant:", Math.PI);
+
+var implicitConversion = "50" * 2;
+console.log('"50" * 2 =', implicitConversion);
+
+ </script>   
+</body>
+</html>
