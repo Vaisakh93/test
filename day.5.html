@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item Return Page</title>
+</head>
+<body>
+  <h2>Return Eligibility Checker</h2>
+  <button onclick="checkReturn()">Check Return</button>
+  <p id="result"></p>
+
+  <script>
+    function checkReturn() {
+    var order = {
+        itemName: "iphone 17",
+        isDelivered: true,
+        daysSinceDelivery: 6
+      };
+
+      var result = (order.isDelivered && order.daysSinceDelivery <= 7)
+        ? "Eligible for Return"
+        : "Return Period Expired";
+
+      document.getElementById("result").innerText = result;
+
+      console.log("itemName exists:", "itemName" in order);
+
+      delete order.daysSinceDelivery;
+      console.log("Updated order object:", order);
+    }
+  </script>
+</body>
+</html>
