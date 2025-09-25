@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Result Dashboard</title>
+</head>
+<body>
+  <h2>Student Result Dashboard</h2>
+  <button onclick="showResults()">Show Results</button>
+  <div id="output"></div>
+
+  <script>
+    
+    let students = [
+      { name: "vaizi", score: 85 },
+      { name: "sadrus", score: 32 },
+      { name: "anju", score: 67 },
+      { name: "krishna", score: 95 },
+      { name: "shanthi", score: 45 }
+    ];
+
+    function showResults() {
+      let output = "";
+
+            let allNames = students.map(s => s.name);
+      output += "<b>All Students:</b> " + allNames.join(", ") + "<br><br>";
+
+            let above60 = students.filter(s => s.score > 60).map(s => s.name);
+      output += "<b>Students scoring > 60:</b> " + above60.join(", ") + "<br><br>";
+
+            let totalScore = students.reduce((sum, s) => sum + s.score, 0);
+      output += "<b>Total Score:</b> " + totalScore + "<br><br>";
+
+            let allPassed = students.every(s => s.score > 35);
+      output += "<b>All Passed:</b> " + allPassed + "<br><br>";
+
+      let topperExists = students.some(s => s.score > 90);
+      output += "<b>At least one scored > 90:</b> " + topperExists + "<br><br>";
+
+      
+      let sorted = [...students].sort((a, b) => b.score - a.score);
+      output += "<b>Sorted by Score (High → Low):</b><br>";
+      sorted.forEach(s => {
+        output += `${s.name} - ${s.score}<br>`;
+      });
+
+            document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

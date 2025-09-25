@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery Store Products</title>
+</head>
+<body>
+  <h2>Product Listings</h2>
+  <button onclick="showProducts()">Show Products</button>
+  <button onclick="filterProducts()">Show Products > 50</button>
+  <button onclick="addProduct()">Add Watermelon</button>
+
+  <div id="output"></div>
+
+  <script>
+   
+    var productNames = ["Apple", "Banana", "Mango", "Orange"];
+    var productPrices = [50, 30, 60, 45];
+
+
+   var products = productNames.map((name, index) => {
+      return { name: name, price: productPrices[index] };
+    });
+
+    function displayProducts(list) {
+      let output = "";
+      list.forEach(p => {
+        output += `Product: ${p.name} - Price: ${p.price}<br>`;
+      });
+      document.getElementById("output").innerHTML = output;
+    }
+
+    function showProducts() {
+      displayProducts(products);
+    }
+
+    function filterProducts() {
+      let filtered = products.filter(p => p.price > 50);
+      displayProducts(filtered);
+    }
+
+    function addProduct() {
+      products.push({ name: "Watermelon", price: 80 });
+      displayProducts(products);
+    }
+  </script>
+</body>
+</html>
