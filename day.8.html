@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery Store Calculator</title>
+</head>
+<body>
+  <h2>Grocery Store Calculator</h2>
+  <button onclick="startShopping()">Start Purchases</button>
+  <div id="output"></div>
+
+  <script>
+    function startShopping() {
+      let output = "";
+      let purchaseCount = 0;
+
+      while (purchaseCount < 5) {
+
+        let code = parseInt(prompt("Enter product code (1=Apple, 2=Banana, 3=Mango):"));
+        let quantity = parseInt(prompt("Enter quantity:"));
+
+        let productName, pricePerItem, totalPrice;
+
+        switch (code) {
+          case 1:
+            productName = "Apple";
+            pricePerItem = 30;
+            break;
+          case 2:
+            productName = "Banana";
+            pricePerItem = 10;
+            break;
+          case 3:
+            productName = "Mango";
+            pricePerItem = 50;
+            break;
+          default:
+            alert("Invalid code! Skipping this entry.");
+            continue;
+        }
+
+        totalPrice = pricePerItem * quantity;
+        output += `Product: ${productName}, Quantity: ${quantity}, Total: ₹${totalPrice} <br>`;
+
+        if (totalPrice > 100) {
+          output += `<b>High purchase</b><br><br>`;
+        } else {
+          output += `Normal purchase<br><br>`;
+        }
+
+        purchaseCount++;
+      }
+
+    
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</body>
+</html>
