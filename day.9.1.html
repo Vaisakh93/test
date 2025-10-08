@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comment Filter System</title>
+</head>
+<body>
+  <h2>Blog Comment Filter</h2>
+  <button onclick="filterComment()">Run Filter</button>
+  <div id="output"></div>
+
+  <script>
+    function filterComment() {
+     
+      let comment = "I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great.";
+
+      let cleanedComment = comment.replace(/\b(bad|ugly|stupid)\b/gi, "***");
+
+      let numbersFound = comment.match(/\d+/g); 
+      let numberCount = numbersFound ? numbersFound.length : 0;
+
+      let capitalWords = comment.match(/\b[A-Z][a-zA-Z]*\b/g);
+      let capitalCount = capitalWords ? capitalWords.length : 0;
+
+      let message = `
+        <b>Original Comment:</b> ${comment}<br><br>
+        <b>Cleaned Comment:</b> ${cleanedComment}<br><br>
+        <b>Numbers Found:</b> ${numberCount}<br>
+        <b>Words Starting with Capital Letters:</b> ${capitalCount}
+      `;
+
+      document.getElementById("output").innerHTML = message;
+    }
+  </script>
+</body>
+</html>
