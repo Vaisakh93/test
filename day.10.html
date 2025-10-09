@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Message Handler</title>
+</head>
+<body>
+  <h2>JSON to Object Example</h2>
+  <button onclick="handleUserMessage()">Run Script</button>
+
+  <script>
+
+    let handleUserMessage = () => {
+      
+      let jsonText = '{"name": "jango", "email": "jango@example.com", "message": "Hello there!"}';
+      
+      try {
+        
+        let userData = JSON.parse(jsonText);
+
+       
+        console.log(`Message received from ${userData.name}`);
+      } 
+      catch (error) {
+        
+        console.error(" Error parsing JSON:", error.message);
+      }
+    };
+  </script>
+</body>
+</html>

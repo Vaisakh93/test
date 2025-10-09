@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Feedback Processor</title>
+</head>
+<body>
+  <h2>Feedback Processing</h2>
+  <button onclick="processFeedback()">Check Feedback</button>
+
+  <script>
+   
+   let processFeedback = () => {
+      
+     let feedbackJSON = '{"name": "Jango", "email": "jango@example.com", "feedback": "Thank you for your quick response!"}';
+      
+      try {
+        
+        let feedbackData = JSON.parse(feedbackJSON);
+
+       
+        let feedbackText = feedbackData.feedback;
+        let hasThank = /thank/i.test(feedbackText);
+
+        
+        if (hasThank) {
+          console.log("Positive feedback received");
+        } else {
+          console.log("Feedback noted");
+        }
+      } 
+      catch (error) {
+       
+        console.error(" Invalid JSON data:", error.message);
+      }
+    };
+  </script>
+</body>
+</html>
